@@ -11,13 +11,13 @@ function list () {
 }
 
 function find (properties) {
-  return _.cloneDeep(_.filter(data, properties));
+  return _.cloneDeep(_.filter(data, properties)); // why not just _.clone? 2 people can have the same name !??
 }
 
 module.exports = { add: add, list: list, find: find };
 
 
-const randArrayEl = function(arr) {
+const randArrayEl = function(arr) {  //randomizes names, tweets
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
@@ -35,4 +35,7 @@ const getFakeTweet = function() {
 for (let i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
-console.log(data);
+
+
+
+

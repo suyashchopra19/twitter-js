@@ -9,11 +9,10 @@ router.get('/', function (req, res) {
 });
 
 router.get('/stylesheets/style.css', (req,res)=>{
-	console.log('this is running')	
-	res.sendFile(../public/stylesheets/style.css);
-
+	console.log('this is running')	//how to send file via a relative path or how to set a relative
+	res.sendFile('/Users/suyashchopra/Desktop/Programming/2.FullStackAcademy/Junior Phase/7.twitter-js/public/stylesheets/style.css');
 })
 
-router.use(express.static('public'))
+// router.use(express.static('public'))
 
 module.exports = router;
