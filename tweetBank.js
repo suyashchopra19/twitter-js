@@ -1,4 +1,5 @@
-const _= require('lodash');
+const _= require('lodash');  
+
 
 var data = [];
 
@@ -11,11 +12,11 @@ function list () {
 }
 
 function find (properties) {
-  return _.cloneDeep(_.filter(data, properties)); // why not just _.clone? 2 people can have the same name !??
+	let nameFirst = data.name.split(" ")[0] 
+  return _.cloneDeep(_.filter(namrFirst, properties)); // why not just _.clone? 2 people can have the same name !??
 }
 
-module.exports = { add: add, list: list, find: find };
-
+module.exports = { add: add, list: list, find: find }; //Exporting modules to routes 
 
 const randArrayEl = function(arr) {  //randomizes names, tweets
   return arr[Math.floor(Math.random() * arr.length)];
@@ -35,7 +36,5 @@ const getFakeTweet = function() {
 for (let i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
-
-
-
+// console.log(data)
 

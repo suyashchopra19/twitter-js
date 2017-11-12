@@ -4,15 +4,18 @@ const router = express.Router();
 const tweetBank = require('../tweetBank');
 
 router.get('/', function (req, res) {
-  let tweets = tweetBank.list();
-  res.render( 'index', { tweets: tweets } );
+  var tweets = tweetBank.list();
+  console.log(tweets);
+  res.render( 'index', { title: 'Twitter.js', tweets:tweets} );
 });
 
 router.get('/stylesheets/style.css', (req,res)=>{
 	console.log('this is running')	//how to send file via a relative path or how to set a relative
-	res.sendFile('/Users/suyashchopra/Desktop/Programming/2.FullStackAcademy/Junior Phase/7.twitter-js/public/stylesheets/style.css');
+	res.sendFile('/stylesheets/style.css',{root:__dirname +'/../public/'});
 })
 
-// router.use(express.static('public'))
 
-module.exports = router;
+
+router.use(express.static('public'))
+
+module.exports = router; 
